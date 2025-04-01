@@ -5,9 +5,9 @@ export const TicketBooth = () => {
     contentTarget.innerHTML = `
         <div class="ticketBooth">
             <button id="rideTicket">Ride Ticket</button>
-        </div>
-        <div class="ticketBooth">
             <button id="foodTicket">Food Ticket</button>
+            <button id="gameTicket">Game Ticket</button>  
+            <button id="sideshowTicket">Sideshow Ticket</button>                                            
         </div>
 
     `
@@ -22,6 +22,13 @@ eventHub.addEventListener("click", clickEvent => {
     } else if (clickEvent.target.id === "foodTicket") {
         const foodEvent = new CustomEvent("foodTicketPurchased")
         eventHub.dispatchEvent(foodEvent)
+
+    } else if (clickEvent.target.id === "gameTicket") {
+        const gameEvent = new CustomEvent("gameTicketPurchased")
+        eventHub.dispatchEvent(gameEvent)
+    } else if (clickEvent.target.id === "sideshowTicket") {
+        const sideshowEvent = new CustomEvent("sideshowTicketPurchased")
+        eventHub.dispatchEvent(sideshowEvent)
     }
 })
 
